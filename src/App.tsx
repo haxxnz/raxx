@@ -1,6 +1,11 @@
+import { useState } from "react";
 import "./App.css";
 
+const oneYearAgo = new Date(new Date().setFullYear(new Date().getFullYear() - 1));
+
 function App() {
+  const [radius, setRadius] = useState(12);
+  const [startDate, setStartDate] = useState(oneYearAgo.toISOString().split('T')[0]);
   return (
     <>
       <header className="flex border border-gray-400 max-w-6xl mx-auto mt-4 p-4 rounded-xl bg-gray-300 text-black gap-3 shadow-md">
@@ -33,12 +38,15 @@ function App() {
           </div>
           <div>
             <label htmlFor="location" className="block text-sm font-medium">
-              Search Radius
+              Search Radius (km)
             </label>
             <input
-              type="select"
+              type="number"
+              value={radius}
+              min={1}
+              onChange={(e) => setRadius(parseInt(e.target.value))}
               name="location"
-              className="p-2 rounded-md mt-2 w-full"
+              className="p-2 rounded-md mt-2 w-full text-black"
               placeholder="12 KM from your property"
             />
           </div>
@@ -47,9 +55,11 @@ function App() {
               Compared to when?
             </label>
             <input
-              type="select"
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
               name="location"
-              className="p-2 rounded-md mt-2 w-full"
+              className="p-2 rounded-md mt-2 w-full text-black"
               placeholder="Last year"
             />
           </div>
