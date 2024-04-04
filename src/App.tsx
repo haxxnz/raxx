@@ -1,11 +1,15 @@
 import { useState } from "react";
 import "./App.css";
 
-const oneYearAgo = new Date(new Date().setFullYear(new Date().getFullYear() - 1));
+const oneYearAgo = new Date(
+  new Date().setFullYear(new Date().getFullYear() - 1)
+);
 
 function App() {
   const [radius, setRadius] = useState(12);
-  const [startDate, setStartDate] = useState(oneYearAgo.toISOString().split('T')[0]);
+  const [startDate, setStartDate] = useState(
+    oneYearAgo.toISOString().split("T")[0]
+  );
   return (
     <>
       <header className="flex border border-gray-400 max-w-6xl mx-auto mt-4 p-4 rounded-xl bg-gray-300 text-black gap-3 shadow-md">
