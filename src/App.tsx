@@ -53,9 +53,9 @@ function App() {
               className="p-2 rounded-md mt-2 w-full text-white"
               placeholder="Last year"
             >
-              <option value="dog">Last Year</option>
-              <option value="cat">Last Month</option>
-              <option value="cat">Last Week</option>
+              <option value="year">Last Year</option>
+              <option value="month">Last Month</option>
+              <option value="week">Last Week</option>
             </select>
           </div>
         </div>
