@@ -58,14 +58,18 @@ function App() {
             <label htmlFor="location" className="block text-sm font-medium">
               Compared to when?
             </label>
-            <input
+            <select
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               name="location"
-              className="p-2 rounded-md mt-2 w-full text-black"
+              className="p-2 rounded-md mt-2 w-full text-white"
               placeholder="Last year"
-            />
+            >
+              <option value="dog">Last Year</option>
+              <option value="cat">Last Month</option>
+              <option value="cat">Last Week</option>
+            </select>
           </div>
         </div>
 
@@ -105,7 +109,7 @@ function App() {
               href="theft"
               className="border-gray-900 border rounded-xl bg-gray-950"
             >
-              <aside className="text-xl text-blue-500 border-b border-gray-900  p-4 font-semibold">
+              <aside className="text-xl text-blue-400 border-b border-gray-900  p-4 font-semibold">
                 Theft
               </aside>
               <div className="flex gap-4 items-center p-4">
@@ -132,7 +136,7 @@ function App() {
               href="theft"
               className="border-gray-900 border rounded-xl bg-gray-950"
             >
-              <aside className="text-xl text-blue-500 border-b border-gray-900  p-4 font-semibold">
+              <aside className="text-xl text-blue-400 border-b border-gray-900  p-4 font-semibold">
                 Violent Crime
               </aside>
               <div className="flex gap-4 items-center p-4">
@@ -159,7 +163,7 @@ function App() {
               href="theft"
               className="border-gray-900 border rounded-xl bg-gray-950"
             >
-              <aside className="text-xl text-blue-500 border-b border-gray-900  p-4 font-semibold">
+              <aside className="text-xl text-blue-400 border-b border-gray-900  p-4 font-semibold">
                 Sexual Assault
               </aside>
               <div className="flex gap-4 items-center p-4">
@@ -186,7 +190,7 @@ function App() {
               href="theft"
               className="border-gray-900 border rounded-xl  bg-gray-950"
             >
-              <aside className="text-xl text-blue-500 border-b border-gray-900  p-4 font-semibold">
+              <aside className="text-xl text-blue-400 border-b border-gray-900  p-4 font-semibold">
                 Kidnapping & Harassment
               </aside>
               <div className="flex gap-4 items-center p-4">
