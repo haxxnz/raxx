@@ -31,7 +31,7 @@ function App() {
         <div className="mt-6 grid grid-cols-3 gap-4">
           <div>
             <label htmlFor="location" className="block text-sm font-medium">
-              Enter your address
+              Enter your location / suburb
             </label>
             <input
               name="location"
