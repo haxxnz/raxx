@@ -40,20 +40,7 @@ function App() {
               placeholder="1 Hobson Street, Auckland Central"
             />
           </div>
-          <div>
-            <label htmlFor="location" className="block text-sm font-medium">
-              Search Radius (km)
-            </label>
-            <input
-              type="number"
-              value={radius}
-              min={1}
-              onChange={(e) => setRadius(parseInt(e.target.value))}
-              name="location"
-              className="p-2 rounded-md mt-2 w-full text-black"
-              placeholder="12 KM from your property"
-            />
-          </div>
+
           <div>
             <label htmlFor="location" className="block text-sm font-medium">
               Compared to when?
