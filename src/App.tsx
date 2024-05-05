@@ -75,23 +75,22 @@ function App() {
               Total Reported Incidents
             </aside>
             <div className="flex gap-4 items-center p-4">
-              <img src="/img/up.svg" className="w-14 h-14 bg-gray rounded-xl" />
-              <h3>
-                <span className="text-5xl font-semibold block">Up 15%</span>{" "}
-                <span className="text-sm text-gray-400">from last year</span>
-              </h3>
+              <img src="/img/up.svg" className="w-8 h-8 bg-gray rounded-xl" />
+              <div>
+                <h3>
+                  <span className="text-base font-semibold ">Up 15%</span>{" "}
+                  <span className="text-base text-gray-300">
+                    from last year
+                  </span>
+                </h3>
+                <p className="text-sm text-gray-600">
+                  1230 incidents this year vs 1220 last year
+                </p>
+              </div>
             </div>
-            <div className="flex gap-2 items-center border-t border-gray-900  p-4 w-full">
-              <img
-                src="/img/cop-hat.svg"
-                className="w-5 h-5 bg-gray rounded-xl"
-              />
-              <p className="text-xs text-gray-500">
-                1230 this year vs 1220 last year - increase of 1234 incidents
-              </p>
-            </div>
+            <div className="flex gap-2 items-center border-t border-gray-900  p-4 w-full min-h-[400px]"></div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             <a
               href="theft"
               className="border-gray-900 border rounded-xl bg-gray-950"
@@ -100,23 +99,18 @@ function App() {
                 Theft
               </aside>
               <div className="flex gap-4 items-center p-4">
-                <img
-                  src="/img/up.svg"
-                  className="w-14 h-14 bg-gray rounded-xl"
-                />
-                <h3>
-                  <span className="text-5xl font-semibold block">Up 177%</span>{" "}
-                  <span className="text-sm text-gray-400">from last year</span>
-                </h3>
-              </div>
-              <div className="flex gap-2 items-center border-t border-gray-900  p-4 w-full">
-                <img
-                  src="/img/cop-hat.svg"
-                  className="w-5 h-5 bg-gray rounded-xl"
-                />
-                <p className="text-xs text-gray-500">
-                  1230 this year vs 1220 last year - net gain of 1234 incidents
-                </p>
+                <img src="/img/up.svg" className="w-8 h-8 bg-gray rounded-xl" />
+                <div>
+                  <h3>
+                    <span className="text-base font-semibold ">Up 15%</span>{" "}
+                    <span className="text-base text-gray-300">
+                      from last year
+                    </span>
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    1230 incidents this year vs 1220 last year
+                  </p>
+                </div>
               </div>
             </a>
             <a
@@ -124,26 +118,21 @@ function App() {
               className="border-gray-900 border rounded-xl bg-gray-950"
             >
               <aside className="text-xl text-blue-400 border-b border-gray-900  p-4 font-semibold">
-                Violent Crime
+                Theft
               </aside>
               <div className="flex gap-4 items-center p-4">
-                <img
-                  src="/img/up.svg"
-                  className="w-14 h-14 bg-gray rounded-xl"
-                />
-                <h3>
-                  <span className="text-5xl font-semibold block">Up 16%</span>{" "}
-                  <span className="text-sm text-gray-400">from last year</span>
-                </h3>
-              </div>
-              <div className="flex gap-2 items-center border-t border-gray-900  p-4 w-full">
-                <img
-                  src="/img/cop-hat.svg"
-                  className="w-5 h-5 bg-gray rounded-xl"
-                />
-                <p className="text-xs text-gray-500">
-                  1230 this year vs 1220 last year - net gain of 1234 incidents
-                </p>
+                <img src="/img/up.svg" className="w-8 h-8 bg-gray rounded-xl" />
+                <div>
+                  <h3>
+                    <span className="text-base font-semibold ">Up 15%</span>{" "}
+                    <span className="text-base text-gray-300">
+                      from last year
+                    </span>
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    1230 incidents this year vs 1220 last year
+                  </p>
+                </div>
               </div>
             </a>
             <a
@@ -151,53 +140,87 @@ function App() {
               className="border-gray-900 border rounded-xl bg-gray-950"
             >
               <aside className="text-xl text-blue-400 border-b border-gray-900  p-4 font-semibold">
-                Sexual Assault
+                Theft
               </aside>
               <div className="flex gap-4 items-center p-4">
-                <img
-                  src="/img/down.svg"
-                  className="w-14 h-14 bg-gray rounded-xl"
-                />
-                <h3>
-                  <span className="text-5xl font-semibold block">Down 32%</span>{" "}
-                  <span className="text-sm text-gray-400">from last year</span>
-                </h3>
-              </div>
-              <div className="flex gap-2 items-center border-t border-gray-900  p-4 w-full">
-                <img
-                  src="/img/cop-hat.svg"
-                  className="w-5 h-5 bg-gray rounded-xl"
-                />
-                <p className="text-xs text-gray-500">
-                  1230 this year vs 1220 last year - net gain of 1234 incidents
-                </p>
+                <img src="/img/up.svg" className="w-8 h-8 bg-gray rounded-xl" />
+                <div>
+                  <h3>
+                    <span className="text-base font-semibold ">Up 15%</span>{" "}
+                    <span className="text-base text-gray-300">
+                      from last year
+                    </span>
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    1230 incidents this year vs 1220 last year
+                  </p>
+                </div>
               </div>
             </a>
             <a
               href="theft"
-              className="border-gray-900 border rounded-xl  bg-gray-950"
+              className="border-gray-900 border rounded-xl bg-gray-950"
             >
               <aside className="text-xl text-blue-400 border-b border-gray-900  p-4 font-semibold">
-                Kidnapping & Harassment
+                Theft
               </aside>
               <div className="flex gap-4 items-center p-4">
-                <img
-                  src="/img/down.svg"
-                  className="w-14 h-14 bg-gray rounded-xl"
-                />
-                <h3>
-                  <span className="text-5xl font-semibold block">Down 5%</span>{" "}
-                  <span className="text-sm text-gray-400">from last year</span>
-                </h3>
+                <img src="/img/up.svg" className="w-8 h-8 bg-gray rounded-xl" />
+                <div>
+                  <h3>
+                    <span className="text-base font-semibold ">Up 15%</span>{" "}
+                    <span className="text-base text-gray-300">
+                      from last year
+                    </span>
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    1230 incidents this year vs 1220 last year
+                  </p>
+                </div>
               </div>
-              <div className="flex gap-2 items-center border-t border-gray-900  p-4 w-full">
-                <img
-                  src="/img/cop-hat.svg"
-                  className="w-5 h-5 bg-gray rounded-xl"
-                />
-                <p className="text-xs text-gray-500">
-                  1230 this year vs 1220 last year - net gain of 1234 incidents
-                </p>
+            </a>
+            <a
+              href="theft"
+              className="border-gray-900 border rounded-xl bg-gray-950"
+            >
+              <aside className="text-xl text-blue-400 border-b border-gray-900  p-4 font-semibold">
+                Theft
+              </aside>
+              <div className="flex gap-4 items-center p-4">
+                <img src="/img/up.svg" className="w-8 h-8 bg-gray rounded-xl" />
+                <div>
+                  <h3>
+                    <span className="text-base font-semibold ">Up 15%</span>{" "}
+                    <span className="text-base text-gray-300">
+                      from last year
+                    </span>
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    1230 incidents this year vs 1220 last year
+                  </p>
+                </div>
+              </div>
+            </a>
+            <a
+              href="theft"
+              className="border-gray-900 border rounded-xl bg-gray-950"
+            >
+              <aside className="text-xl text-blue-400 border-b border-gray-900  p-4 font-semibold">
+                Theft
+              </aside>
+              <div className="flex gap-4 items-center p-4">
+                <img src="/img/up.svg" className="w-8 h-8 bg-gray rounded-xl" />
+                <div>
+                  <h3>
+                    <span className="text-base font-semibold ">Up 15%</span>{" "}
+                    <span className="text-base text-gray-300">
+                      from last year
+                    </span>
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    1230 incidents this year vs 1220 last year
+                  </p>
+                </div>
               </div>
             </a>
           </div>
