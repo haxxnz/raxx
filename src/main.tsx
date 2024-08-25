@@ -28,7 +28,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         className="flex items-center gap-2 p-4 border-r border-gray-700"
         href="/"
       >
-        <img src="/img/info-white.svg" className="w-6 h-6" />
+        <p> 🚨</p>
         <p className="text-lg font-bold">raxx.haxx.nz</p>
       </a>
       <div className="flex items-center">

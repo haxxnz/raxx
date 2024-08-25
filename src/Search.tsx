@@ -1,25 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 const oneYearAgo = new Date(
   new Date().setFullYear(new Date().getFullYear() - 1)
 );
 
+async function getData() {
+  const url =
+    "https://raw.githubusercontent.com/haxxnz/raxx-data/main/results_20240825.json";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const json = await response.json();
+    console.log(json);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
 function Search() {
   const [startDate, setStartDate] = useState(
     oneYearAgo.toISOString().split("T")[0]
   );
+  useEffect(() => {
+    getData();
+  });
   return (
     <>
-      <section className="w-full max-w-6xl mx-auto mt-8 border-gray-700 border rounded-xl p-6 bg-gray-950">
+      <section className=" max-w-6xl mx-auto mt-8 border-gray-700 border rounded-xl p-6 bg-gray-950 max-xl:m-4">
         <h1 className="text-2xl font-semibold border-b border-gray-700 pb-6">
-          Search Suburbs for Crime{" "}
+          Search Suburbs for Crime Stats{" "}
         </h1>
 
-        <div className="mt-6 grid grid-cols-3 gap-4">
+        <div className="mt-6 grid grid-cols-3 gap-4 max-lg:grid-cols-1">
           <div>
             <label htmlFor="location" className="block text-sm font-medium">
-              Enter your location / suburb
+              Location
             </label>
             <input
               name="location"
@@ -45,11 +64,11 @@ function Search() {
           </div>
         </div>
 
-        <button className="w-full p-4 bg-blue-600 mt-6 rounded-xl max-w-56">
+        <button className="w-full p-4 bg-blue-600 mt-6 rounded-xl max-w-56 max-lg:max-w-none">
           Submit
         </button>
       </section>{" "}
-      <section className="w-full max-w-6xl mx-auto mt-8">
+      <section className=" max-w-6xl mx-auto mt-8 max-lg:m-4">
         <h1 className="text-2xl  border-b border-gray-800 mb-8 pb-6">
           Crime stats for all of <strong>New Zealand</strong>
           <span className="font-normal text-gray-600"> - This Year</span>
@@ -75,7 +94,7 @@ function Search() {
             </div>
             <div className="flex gap-2 items-center border-t border-gray-900  p-4 w-full "></div>
           </div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4 max-lg:grid-cols-2 max-md:grid-cols-1">
             <a
               href="theft"
               className="border-gray-900 border rounded-xl bg-gray-950"
@@ -211,11 +230,11 @@ function Search() {
           </div>
         </div>
       </section>
-      <section className="w-full max-w-6xl mx-auto mt-8 border-gray-800 border rounded-xl bg-gray-950">
+      <section className="max-lg:m-4 max-w-6xl mx-auto mt-8 border-gray-800 border rounded-xl bg-gray-950">
         <h2 className="text-3xl font-semibold p-4 border-b border-gray-800">
           Theft
         </h2>
-        <div className="grid grid-cols-3 gap-4 p-4">
+        <div className="grid grid-cols-3 gap-4 p-4 max-lg:grid-cols-2 max-md:grid-cols-1">
           <div>
             <aside className="text-sm">Illegal Use of a Motor Vehicle</aside>
             <h3 className="text-3xl font-semibold">
