@@ -17,3 +17,14 @@
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
 }
+
+html body div.wrapper {
+  background-color: #111 !important;
+  color: white !important;
+  border-radius: 12px !important;
+  border: none !important;
+}
+
+html body div.wrapper input {
+  color: white !important;
+}

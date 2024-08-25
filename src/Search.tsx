@@ -110,12 +110,8 @@ function Search() {
             </select>
           </div>
         </div>
-
-        <button className="w-full p-4 bg-blue-600 mt-6 rounded-xl max-w-56 max-lg:max-w-none">
-          Submit
-        </button>
       </section>{" "}
-      <section className=" max-w-6xl mx-auto mt-8 max-lg:m-4">
+      <section className=" max-w-6xl mx-auto mt-8 max-xl:m-4">
         <h1 className="text-2xl  border-b border-gray-800 mb-8 pb-6">
           Crime stats for all of <strong>New Zealand</strong>
           <span className="font-normal text-gray-600"> - This Year</span>
