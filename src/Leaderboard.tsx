@@ -11,7 +11,7 @@ function Leaderboard() {
   );
   return (
     <>
-      <section className="w-full max-w-6xl mx-auto mt-8 border-gray-700 border rounded-xl p-6 bg-gray-950">
+      <section className="max-lg:m-4 max-w-6xl mx-auto mt-8 border-gray-700 border rounded-xl p-6 bg-gray-950">
         <h1 className="text-2xl font-semibold border-b border-gray-700 pb-6">
           Crime Leaderboards
         </h1>
@@ -51,11 +51,11 @@ function Leaderboard() {
           Submit
         </button>
       </section>{" "}
-      <section className="w-full max-w-6xl mx-auto mt-8">
+      <section className="max-lg:m-4 max-w-6xl mx-auto mt-8">
         {" "}
         <h1 className="text-2xl font-semibold">All Incidents / This year</h1>
       </section>
-      <section className="w-full max-w-6xl mx-auto mt-8 border-gray-700 border rounded-xl p-6 bg-gray-950">
+      <section className="max-lg:m-4 max-w-6xl mx-auto mt-8 border-gray-700 border rounded-xl p-6 bg-gray-950">
         {" "}
         <div className="flex justify-between font-semibold mb-8">
           <p className="flex-1 text-lg">Location</p>
