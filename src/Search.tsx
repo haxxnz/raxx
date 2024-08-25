@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 const oneYearAgo = new Date(
   new Date().setFullYear(new Date().getFullYear() - 1)
@@ -21,18 +22,61 @@ async function getData() {
   }
 }
 
+// Define the fetchData function
+const fetchData = async () => {
+  // Your logic to fetch data
+  const data = await getData();
+  const dataWithID = data.map((item, index) => ({
+    ...item,
+    id: index + 1,
+  }));
+  return dataWithID;
+  // Do something with dataWithID
+};
+
 function Search() {
   const [startDate, setStartDate] = useState(
     oneYearAgo.toISOString().split("T")[0]
   );
-  useEffect(() => {
-    getData();
-  });
+
+  const handleOnSearch = (string, results) => {
+    // onSearch will have as the first callback parameter
+    // the string searched and for the second the results.
+    console.log(string, results);
+  };
+
+  const handleOnHover = (result) => {
+    // the item hovered
+    console.log(result);
+  };
+
+  const handleOnSelect = (item) => {
+    // the item selected
+    console.log(item);
+  };
+
+  const handleOnFocus = () => {
+    console.log("Focused");
+  };
+
+  const formatResult = (item) => {
+    return (
+      <>
+        <span style={{ display: "block", textAlign: "left" }}>
+          id: {item.id}
+        </span>
+        <span style={{ display: "block", textAlign: "left" }}>
+          name: {item.name}
+        </span>
+      </>
+    );
+  };
+
   return (
     <>
       <section className=" max-w-6xl mx-auto mt-8 border-gray-700 border rounded-xl p-6 bg-gray-950 max-xl:m-4">
         <h1 className="text-2xl font-semibold border-b border-gray-700 pb-6">
-          Search Suburbs for Crime Stats{" "}
+          Search Suburbs for Crime stats{" "}
         </h1>
 
         <div className="mt-6 grid grid-cols-3 gap-4 max-lg:grid-cols-1">
@@ -40,11 +84,14 @@ function Search() {
             <label htmlFor="location" className="block text-sm font-medium">
               Location
             </label>
-            <input
-              name="location"
-              type="text"
-              className="p-2 rounded-md mt-2 w-full"
-              placeholder="1 Hobson Street, Auckland Central"
+            <ReactSearchAutocomplete
+              items={fetchData} // Call the getData function to get the array of items
+              onSearch={handleOnSearch}
+              onHover={handleOnHover}
+              onSelect={handleOnSelect}
+              onFocus={handleOnFocus}
+              autoFocus
+              formatResult={formatResult}
             />
           </div>
 
@@ -151,7 +198,7 @@ function Search() {
                 <div>
                   <h3>
                     <span className="text-base font-semibold ">Up 15%</span>{" "}
-                    <span className="text-base text-gray-300">
+                    <span className="text-base text-gray-300</div>">
                       from last year
                     </span>
                   </h3>
