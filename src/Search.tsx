@@ -34,7 +34,6 @@ function Search() {
               Compared to when?
             </label>
             <select
-              type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               name="location"

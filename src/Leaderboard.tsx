@@ -21,12 +21,10 @@ function Leaderboard() {
               Select category
             </label>
             <select
-              type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               name="location"
               className="p-2 rounded-md mt-2 w-full text-white"
-              placeholder="Last year"
             >
               <option value="all">All Crime</option>
               <option value="year">Theft</option>
@@ -42,7 +40,6 @@ function Leaderboard() {
               onChange={(e) => setStartDate(e.target.value)}
               name="location"
               className="p-2 rounded-md mt-2 w-full text-white"
-              placeholder="Last year"
             >
               <option value="year">This year</option>
               <option value="month">This Month</option>

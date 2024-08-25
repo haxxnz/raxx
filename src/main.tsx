@@ -21,7 +21,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <header className=" flex items-center gap-4 justify-between border-b border-gray-700">
       <a
