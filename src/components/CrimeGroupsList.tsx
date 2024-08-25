@@ -55,15 +55,20 @@ const CrimeGroupsList = ({ crimeData }) => {
               );
               return countB - countA;
             })
-            .map(([location, yearData]) => (
-              <div key={location} className="ml-4 mb-4">
-                <h4 className="text-lg font-medium mb-2">{location}</h4>
+            .map(([location, yearData], index) => (
+              <div
+                key={location}
+                className="ml-4 mb-4 flex justify-between items-center border-t border-gray-700 pt-6"
+              >
+                <h4 className="text-lg font-medium mb-2">
+                  {index + 1}. {location}
+                </h4>
 
                 {Object.entries(yearData).map(([year, count]) => {
                   if (year === currentYear) {
                     return (
                       <p key={year} className="mb-1">
-                        {year}: {count}
+                        {count}
                       </p>
                     );
                   }

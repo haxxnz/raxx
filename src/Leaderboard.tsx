@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CrimeGroupsList from "./components/CrimeGroupsList";
 
 interface CrimeData {
-  [key: string]: any; // Replace with a more specific type if possible
+  [key: string]: unknown; // Replace with a more specific type if possible
 }
 
 function Leaderboard() {
