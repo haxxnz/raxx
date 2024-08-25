@@ -6,7 +6,6 @@ const oneYearAgo = new Date(
 );
 
 function Search() {
-  const [radius, setRadius] = useState(12);
   const [startDate, setStartDate] = useState(
     oneYearAgo.toISOString().split("T")[0]
   );
