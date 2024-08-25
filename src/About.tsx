@@ -11,8 +11,7 @@ function About() {
         <p>
           This website pulls data from policedata.nz and displays it both by
           subrub and by category. The data is updated monthly every time NZ
-          Police updates their data and is available for free to the public.
-          aaaaaa
+          Police updates their data and is available for free to the public. a
         </p>
         <p>Built by Walter Lim and Frank He</p>
 
