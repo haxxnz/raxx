@@ -5,8 +5,7 @@ const oneYearAgo = new Date(
   new Date().setFullYear(new Date().getFullYear() - 1)
 );
 
-function App() {
-  const [radius, setRadius] = useState(12);
+function Leaderboard() {
   const [startDate, setStartDate] = useState(
     oneYearAgo.toISOString().split("T")[0]
   );
@@ -14,24 +13,12 @@ function App() {
     <>
       <section className="w-full max-w-6xl mx-auto mt-8 border-gray-700 border rounded-xl p-6 bg-gray-950">
         <h1 className="text-2xl font-semibold border-b border-gray-700 pb-6">
-          Search Crime Leaderboards
+          Crime Leaderboards
         </h1>
         <div className="mt-6 grid grid-cols-3 gap-4">
           <div>
             <label htmlFor="location" className="block text-sm font-medium">
-              Enter your location / suburb
-            </label>
-            <input
-              name="location"
-              type="text"
-              className="p-2 rounded-md mt-2 w-full"
-              placeholder="1 Hobson Street, Auckland Central"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="location" className="block text-sm font-medium">
-              Filter by category
+              Select category
             </label>
             <select
               type="date"
@@ -57,9 +44,8 @@ function App() {
               className="p-2 rounded-md mt-2 w-full text-white"
               placeholder="Last year"
             >
-              <option value="year">Last Year</option>
-              <option value="month">Last Month</option>
-              <option value="week">Last Week</option>
+              <option value="year">This year</option>
+              <option value="month">This Month</option>
             </select>
           </div>
         </div>
@@ -70,7 +56,7 @@ function App() {
       </section>{" "}
       <section className="w-full max-w-6xl mx-auto mt-8">
         {" "}
-        <h1 className="text-2xl font-semibold">TOPICNAME Leaderboard</h1>
+        <h1 className="text-2xl font-semibold">All Incidents / This year</h1>
       </section>
       <section className="w-full max-w-6xl mx-auto mt-8 border-gray-700 border rounded-xl p-6 bg-gray-950">
         {" "}
@@ -88,4 +74,4 @@ function App() {
   );
 }
 
-export default App;
+export default Leaderboard;

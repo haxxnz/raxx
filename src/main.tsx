@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Search from "./Search";
-import App from "./App";
+import Leaderboard from "./Leaderboard";
 import About from "./About";
 
 const router = createBrowserRouter([
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/rankings",
-    element: <App />,
+    element: <Leaderboard />,
   },
   {
     path: "/about",
@@ -24,7 +24,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <header className=" flex items-center gap-4 justify-between border-b border-gray-700">
-      <a className="flex items-center gap-2 p-4 border-r border-gray-700">
+      <a
+        className="flex items-center gap-2 p-4 border-r border-gray-700"
+        href="/"
+      >
         <img src="/img/info-white.svg" className="w-6 h-6" />
         <p className="text-lg font-bold">raxx.haxx.nz</p>
       </a>

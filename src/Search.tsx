@@ -12,8 +12,10 @@ function Search() {
   );
   return (
     <>
-      <section className="w-full max-w-6xl mx-auto mt-8 border-gray-700 border rounded-xl p-6 bg-gray-800">
-        <h1 className="text-2xl font-semibold">Search Suburbs for Crime </h1>
+      <section className="w-full max-w-6xl mx-auto mt-8 border-gray-700 border rounded-xl p-6 bg-gray-950">
+        <h1 className="text-2xl font-semibold border-b border-gray-700 pb-6">
+          Search Suburbs for Crime{" "}
+        </h1>
 
         <div className="mt-6 grid grid-cols-3 gap-4">
           <div>
@@ -42,7 +44,6 @@ function Search() {
             >
               <option value="year">Last Year</option>
               <option value="month">Last Month</option>
-              <option value="week">Last Week</option>
             </select>
           </div>
         </div>
