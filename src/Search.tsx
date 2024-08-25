@@ -38,7 +38,6 @@ function Search() {
               onChange={(e) => setStartDate(e.target.value)}
               name="location"
               className="p-2 rounded-md mt-2 w-full text-white"
-              placeholder="Last year"
             >
               <option value="year">Last Year</option>
               <option value="month">Last Month</option>
