@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 const oneYearAgo = new Date(
   new Date().setFullYear(new Date().getFullYear() - 1)
@@ -17,6 +16,7 @@ async function getData() {
 
     const json = await response.json();
     console.log(json);
+    return json;
   } catch (error) {
     console.error(error.message);
   }
@@ -38,40 +38,9 @@ function Search() {
   const [startDate, setStartDate] = useState(
     oneYearAgo.toISOString().split("T")[0]
   );
-
-  const handleOnSearch = (string, results) => {
-    // onSearch will have as the first callback parameter
-    // the string searched and for the second the results.
-    console.log(string, results);
-  };
-
-  const handleOnHover = (result) => {
-    // the item hovered
-    console.log(result);
-  };
-
-  const handleOnSelect = (item) => {
-    // the item selected
-    console.log(item);
-  };
-
-  const handleOnFocus = () => {
-    console.log("Focused");
-  };
-
-  const formatResult = (item) => {
-    return (
-      <>
-        <span style={{ display: "block", textAlign: "left" }}>
-          id: {item.id}
-        </span>
-        <span style={{ display: "block", textAlign: "left" }}>
-          name: {item.name}
-        </span>
-      </>
-    );
-  };
-
+  useEffect(() => {
+    fetchData();
+  });
   return (
     <>
       <section className=" max-w-6xl mx-auto mt-8 border-gray-700 border rounded-xl p-6 bg-gray-950 max-xl:m-4">
@@ -84,15 +53,6 @@ function Search() {
             <label htmlFor="location" className="block text-sm font-medium">
               Location
             </label>
-            <ReactSearchAutocomplete
-              items={fetchData} // Call the getData function to get the array of items
-              onSearch={handleOnSearch}
-              onHover={handleOnHover}
-              onSelect={handleOnSelect}
-              onFocus={handleOnFocus}
-              autoFocus
-              formatResult={formatResult}
-            />
           </div>
 
           <div>
@@ -337,7 +297,40 @@ function Search() {
           </div>
         </div>
       </section>
-      <section className="mb-24"></section>
+      <section className="mb-24">
+        const data = getData(); // Assuming getData is a function that returns
+        an array of data return (
+        <section className="mb-24">
+          {data.map((item, index) => (
+            <div
+              key={index}
+              className="border-gray-900 border rounded-xl bg-gray-950"
+            >
+              <aside className="text-xl text-blue-400 border-b border-gray-900 p-4 font-semibold">
+                {item.title}
+              </aside>
+              <div className="flex gap-4 items-center p-4">
+                <img src={item.image} className="w-8 h-8 bg-gray rounded-xl" />
+                <div>
+                  <h3>
+                    <span className="text-base font-semibold">
+                      {item.percentage}
+                    </span>{" "}
+                    <span className="text-base text-gray-300">
+                      from last year
+                    </span>
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    {item.incidentsThisYear} incidents this year vs{" "}
+                    {item.incidentsLastYear} last year
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+        );
+      </section>
     </>
   );
 }
