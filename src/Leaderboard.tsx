@@ -87,11 +87,7 @@ function Leaderboard() {
           <p className="flex-1 text-lg">Location</p>
           <p className="flex-1 text-lg text-end">Frequency</p>
         </div>
-        {/* Example row - replace with actual data */}
-        <div className="flex justify-between items-center min-h-24 border-t border-gray-700">
-          <p className="flex-1 text-lg">1. Britomart, Auckland</p>
-          <p className="flex-1 text-lg text-end">1,230,123 Incidents</p>
-        </div>
+
         {crimeData && (
           <CrimeGroupsList crimeData={crimeData[selectedCrime] || crimeData} />
         )}

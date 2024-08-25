@@ -38,28 +38,39 @@ const CrimeGroupsList = ({ crimeData }) => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">
-        Crime Groups by Type, Location, and Year
-      </h2>
       {groupAndSortData.map(({ crimeType, locationData, currentYearTotal }) => (
         <div key={crimeType} className="mb-8">
           <h3 className="text-xl font-semibold mb-2">
             {crimeType} (Current Year Total: {currentYearTotal})
           </h3>
-          {Object.entries(locationData).map(([location, yearData]) => (
-            <div key={location} className="ml-4 mb-4">
-              <h4 className="text-lg font-medium mb-2">{location}</h4>
-              <ul className="list-disc pl-5">
-                {Object.entries(yearData)
-                  .sort((a, b) => b[0].localeCompare(a[0]))
-                  .map(([year, count]) => (
-                    <li key={year} className="mb-1">
-                      {year}: {count}
-                    </li>
-                  ))}
-              </ul>
-            </div>
-          ))}
+          {Object.entries(locationData)
+            .sort((a, b) => {
+              const countA = Object.values(a[1]).reduce(
+                (sum, count) => sum + count,
+                0
+              );
+              const countB = Object.values(b[1]).reduce(
+                (sum, count) => sum + count,
+                0
+              );
+              return countB - countA;
+            })
+            .map(([location, yearData]) => (
+              <div key={location} className="ml-4 mb-4">
+                <h4 className="text-lg font-medium mb-2">{location}</h4>
+
+                {Object.entries(yearData).map(([year, count]) => {
+                  if (year === currentYear) {
+                    return (
+                      <p key={year} className="mb-1">
+                        {year}: {count}
+                      </p>
+                    );
+                  }
+                  return null;
+                })}
+              </div>
+            ))}
         </div>
       ))}
     </div>
