@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CrimeGroupsList from "./components/CrimeGroupsList";
+import CrimeSummary from "./components/CrimeSummary";
 
 interface CrimeData {
   [key: string]: unknown; // Replace with a more specific type if possible
@@ -89,7 +90,7 @@ function Leaderboard() {
         </div>
 
         {crimeData && (
-          <CrimeGroupsList crimeData={crimeData[selectedCrime] || crimeData} />
+          <CrimeSummary crimeData={crimeData[selectedCrime] || crimeData} />
         )}
       </section>
     </>
