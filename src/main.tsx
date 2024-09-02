@@ -2,14 +2,14 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import Search from "./Search";
+// import Search from "./Search";
 import Leaderboard from "./Leaderboard";
 import About from "./About";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Search />,
+    element: <Leaderboard />,
   },
   {
     path: "/rankings",
