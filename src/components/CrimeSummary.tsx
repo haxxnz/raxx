@@ -12,16 +12,19 @@ const CrimeSummary = ({ crimeData }: { crimeData: CrimeData }) => {
         console.log({ location, count });
         return (
           <div className="mb-2 flex justify-between align-center border-t border-gray-700 pt-4">
-            <a
-              target="_blank"
-              rel="noreferrer"
-              className="text-md  mb-2 text-blue-300 underline"
-              href={`https://www.google.com/maps/search/${encodeURIComponent(
-                location.replace(" ", "+")
-              )}`}
-            >
-              {index + 1}. {location}:
-            </a>
+            <div className=" flex justify-between align-center gap-2">
+              <p> {index + 1}. </p>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                className="text-md  mb-2 text-blue-300 underline"
+                href={`https://www.google.com/maps/search/${encodeURIComponent(
+                  location.replace(" ", "+")
+                )}`}
+              >
+                {location}
+              </a>
+            </div>
             <p className=" text-gray-300">{count.toLocaleString()} incidents</p>
           </div>
         );
