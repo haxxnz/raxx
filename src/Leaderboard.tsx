@@ -134,7 +134,10 @@ function Leaderboard() {
               }}
               className="p-2 rounded-md mt-2 w-full text-white"
             >
-              <option value={"Total"}>All Crime in New Zealand</option>
+              {" "}
+              <optgroup label="Totals">
+                <option value={"Total"}>All Crime in New Zealand</option>
+              </optgroup>
               <optgroup label="Divisions">
                 {Object.keys(divisionUrls).map((name) => (
                   <option key={name} value={name}>
