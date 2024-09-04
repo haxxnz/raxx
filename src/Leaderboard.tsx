@@ -134,7 +134,7 @@ function Leaderboard() {
               }}
               className="p-2 rounded-md mt-2 w-full text-white"
             >
-              <option value={"Total"}>Total</option>
+              <option value={"Total"}>All Crime in New Zealand</option>
               <optgroup label="Divisions">
                 {Object.keys(divisionUrls).map((name) => (
                   <option key={name} value={name}>
@@ -173,10 +173,10 @@ function Leaderboard() {
       </section>
       <section className="max-lg:m-4 max-w-6xl mx-auto mt-8">
         <h1 className="text-2xl font-semibold">
-          {selectedCrime} /{" "}
+          {selectedCrime}{" "}
           {timeFilter === new Date().getFullYear().toString()
-            ? "This year"
-            : timeFilter}
+            ? "this year"
+            : "for " + timeFilter}
         </h1>
       </section>
       <section className="max-lg:m-4 max-w-6xl mx-auto mt-8 border-gray-700 border rounded-xl p-6 bg-gray-950">
