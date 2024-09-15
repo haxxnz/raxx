@@ -27,16 +27,13 @@ function Search() {
   const [startDate, setStartDate] = useState(
     oneYearAgo.toISOString().split("T")[0]
   );
-  const [data, setData] = useState([]);
+  const [regionList, setRegionList] = useState(([] as string[]));
 
   useEffect(() => {
     const fetchData = async () => {
       const fetchedData = await getData();
-      const dataWithID = fetchedData.map((item, index) => ({
-        ...item,
-        id: index + 1,
-      }));
-      setData(dataWithID);
+      const dataWithID = Object.keys(fetchedData);
+      setRegionList(dataWithID);
     };
 
     fetchData();
@@ -80,7 +77,7 @@ function Search() {
       {/* ... (rest of the JSX remains the same) ... */}
 
       <section className="mb-24">
-        {data.map((item) => (
+        {regionList.map((item) => (
           <div
             key={item.id}
             className="border-gray-900 border rounded-xl bg-gray-950"
