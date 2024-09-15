@@ -2,14 +2,14 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-// import Search from "./Search";
+import Search from "./Search";
 import Leaderboard from "./Leaderboard";
 import About from "./About";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Leaderboard />,
+    element: <Search />,
   },
   {
     path: "/rankings",
@@ -32,12 +32,12 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <p className="text-lg font-bold">raxx.haxx.nz</p>
       </a>
       <div className="flex items-center">
-        {/* <a
+        <a
           href="/"
           className="text-blue-300 font-semibold border-l  py-4 px-8 border-gray-700"
         >
           Search
-        </a> */}
+        </a>
         <a
           href="/rankings"
           className="text-blue-300 font-semibold border-l py-4 px-8 text-center  border-gray-700"
