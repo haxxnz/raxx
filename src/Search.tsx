@@ -134,32 +134,90 @@ function Search() {
       nodes.push((
         <div
           key={crime}
-          className="border-gray-900 border rounded-xl bg-gray-950"
+          className="border-gray-900 border rounded-xl bg-gray-950 "
         >
-          <aside className="text-xl text-blue-400 border-b border-gray-900 p-4 font-semibold">
+          <aside className="text-md text-blue-400 border-b border-gray-900 p-4 font-semibold">
             {crime}
           </aside>
-          <div className="flex gap-4 items-center p-4">
+            <div className="flex gap-4 items-center p-4">
             <img
-              //src={item.image}
+              src={crimePercentageDisplay.startsWith('-') ? './img/down.svg' : './img/up.svg'}
               alt=""
               className="w-8 h-8 bg-gray rounded-xl"
             />
             <div>
               <h3>
-                <span className="text-base font-semibold">
-                  {crimePercentageDisplay}
-                </span>{" "}
-                <span className="text-base text-gray-300">
-                  from last year
-                </span>
+              <span className="text-base font-semibold">
+                {crimePercentageDisplay}
+              </span>{" "}
+              <span className="text-base text-gray-300">
+                from last year
+              </span>
               </h3>
               <p className="text-sm text-gray-600">
-                {crimeThisYear ?? "Unknown"} incidents this year vs{" "}
-                {crimeLastYear ?? "Unknown"} last year
+              {crimeThisYear ?? "Unknown"} incidents this year vs{" "}
+              {crimeLastYear ?? "Unknown"} last year
               </p>
             </div>
-          </div>
+            </div>
+        </div>
+      ));
+    }
+    return nodes;
+  }
+
+
+  function renderCrimeSubDisplay(crimeMap?: Map<string, Map<number, number>>, year: number) {
+    if (!crimeMap) {
+      return <div />;
+    }
+
+    let nodes = [];
+
+    for (let [crime, yearMap] of crimeMap.entries()) {
+      let crimeThisYear = yearMap.get(year);
+      let crimeLastYear = yearMap.get(year - 1);
+
+      let crimePercentageDisplay;
+      if (!crimeThisYear || !crimeLastYear) {
+        crimePercentageDisplay = "Unknown";
+      } else {
+        crimePercentageDisplay = `${Math.round(((crimeThisYear - crimeLastYear) / crimeLastYear) * 1000) / 10}%`;
+      }
+
+      nodes.push((
+        <div
+          key={crime}
+          className=""
+        >
+
+          <h3 className="text-xl border-b border-gray-800 pb-4 mb-4 font-semibold" >    {crime} - <aside className="inline font-normal text-gray-500">this year</aside></h3>
+        <div   className="border-gray-900 border rounded-xl bg-gray-950 ">
+          <aside className="text-lg text-white border-b border-gray-900 p-4 font-semibold">
+          {crime}
+          </aside>
+            <div className="flex gap-4 items-center p-4">
+            <img
+              src={crimePercentageDisplay.startsWith('-') ? './img/down.svg' : './img/up.svg'}
+              alt=""
+              className="w-8 h-8 bg-gray rounded-xl"
+            />
+            <div>
+              <h3>
+              <span className="text-base font-semibold">
+                {crimePercentageDisplay}
+              </span>{" "}
+              <span className="text-base text-gray-300">
+                from last year
+              </span>
+              </h3>
+              <p className="text-sm text-gray-600">
+              {crimeThisYear ?? "Unknown"} incidents this year vs{" "}
+              {crimeLastYear ?? "Unknown"} last year
+              </p>
+            </div>
+            </div>
+            </div>
         </div>
       ));
     }
@@ -173,7 +231,7 @@ function Search() {
           Search Suburbs for Crime stats
         </h1>
 
-        <div className="mt-6 grid grid-cols-3 gap-4 max-lg:grid-cols-1">
+        <div className="mt-0 grid grid-cols-3 gap-4 max-lg:grid-cols-1">
           <div>
             <label htmlFor="location" className="block text-sm font-medium">
               Location
@@ -201,10 +259,41 @@ function Search() {
         </div>
       </section>
 
-      {/* ... (rest of the JSX remains the same) ... */}
+    <h2 className="max-w-6xl mx-auto mt-8 text-xl font-semibold border-b border-gray-800 pb-4 mb-4 ">All reported crime in LOCATION - <aside className="inline font-normal text-gray-500">this year</aside></h2>
+      <div
 
-      <section className="mb-24">
+          className="border-gray-900 border rounded-xl bg-gray-950  max-w-6xl mx-auto mt-4"
+        >
+          <aside className="text-md text-white border-b border-gray-900 p-4 font-semibold">
+   All Reported Crime
+          </aside>
+          <div className="flex gap-4 items-center p-4">
+            <img
+              src="./img/down.svg"
+              alt=""
+              className="w-8 h-8 bg-gray rounded-xl"
+            />
+            <div>
+              <h3>
+                <span className="text-base font-semibold">
+             12%
+                </span>{" "}
+                <span className="text-base text-gray-300">
+                  from last year
+                </span>
+              </h3>
+              <p className="text-sm text-gray-600">
+              1299 incidents this year vs{" "}
+                12 last year
+              </p>
+            </div>
+          </div>
+        </div>
+      <section className="mb-24 max-w-6xl mx-auto my-8 grid grid-cols-2 gap-6">
         {renderCrimeDisplay(regionSelected?.crimeByYear, thisYear)}
+      </section>
+      <section className="mb-24 max-w-6xl mx-auto my-8 grid grid-cols-1 gap-6">
+        {renderCrimeSubDisplay(regionSelected?.crimeByYear, thisYear)}
       </section>
     </>
   );
