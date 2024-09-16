@@ -113,6 +113,59 @@ function Search() {
     fetchData();
   }, []);
 
+  function renderCrimeDisplay(crimeMap?: Map<string, Map<number, number>>, year: number) {
+    if (!crimeMap) {
+      return <div />;
+    }
+
+    let nodes = [];
+
+    for (let [crime, yearMap] of crimeMap.entries()) {
+      let crimeThisYear = yearMap.get(year);
+      let crimeLastYear = yearMap.get(year - 1);
+
+      let crimePercentageDisplay;
+      if (!crimeThisYear || !crimeLastYear) {
+        crimePercentageDisplay = "Unknown";
+      } else {
+        crimePercentageDisplay = `${Math.round(((crimeThisYear - crimeLastYear) / crimeLastYear) * 1000) / 10}%`;
+      }
+
+      nodes.push((
+        <div
+          key={crime}
+          className="border-gray-900 border rounded-xl bg-gray-950"
+        >
+          <aside className="text-xl text-blue-400 border-b border-gray-900 p-4 font-semibold">
+            {crime}
+          </aside>
+          <div className="flex gap-4 items-center p-4">
+            <img
+              //src={item.image}
+              alt=""
+              className="w-8 h-8 bg-gray rounded-xl"
+            />
+            <div>
+              <h3>
+                <span className="text-base font-semibold">
+                  {crimePercentageDisplay}
+                </span>{" "}
+                <span className="text-base text-gray-300">
+                  from last year
+                </span>
+              </h3>
+              <p className="text-sm text-gray-600">
+                {crimeThisYear ?? "Unknown"} incidents this year vs{" "}
+                {crimeLastYear ?? "Unknown"} last year
+              </p>
+            </div>
+          </div>
+        </div>
+      ));
+    }
+    return nodes;
+  }
+
   return (
     <>
       <section className="max-w-6xl mx-auto mt-8 border-gray-700 border rounded-xl p-6 bg-gray-950 max-xl:m-4">
@@ -151,7 +204,7 @@ function Search() {
       {/* ... (rest of the JSX remains the same) ... */}
 
       <section className="mb-24">
-      {}
+        {renderCrimeDisplay(regionSelected?.crimeByYear, thisYear)}
       </section>
     </>
   );
